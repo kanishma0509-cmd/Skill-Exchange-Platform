@@ -16,7 +16,10 @@ form.addEventListener('submit', async (e) => {
     });
     saveSession(data.token, data.user);
     window.location.href = 'dashboard.html';
-  } catch (err) {
+   } catch (err) {
     showError(errorEl, err.message);
+    if (err.message.includes('already exists')) {
+      document.getElementById('emailTakenHint').style.display = 'block';
+    }
   }
 });

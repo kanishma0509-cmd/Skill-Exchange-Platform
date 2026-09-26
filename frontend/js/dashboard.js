@@ -9,6 +9,7 @@ async function loadProfile() {
     const user = await apiRequest('/users/me');
     document.getElementById('name').value = user.name || '';
     document.getElementById('bio').value = user.bio || '';
+        document.getElementById('bioCount').textContent = (user.bio || '').length;
     document.getElementById('skillsTeach').value = (user.skillsTeach || []).join(', ');
     document.getElementById('skillsWant').value = (user.skillsWant || []).join(', ');
 
@@ -47,4 +48,8 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   }
 });
 
+
+document.getElementById('bio').addEventListener('input', (e) => {
+  document.getElementById('bioCount').textContent = e.target.value.length;
+});
 loadProfile();
