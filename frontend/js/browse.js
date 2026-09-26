@@ -19,6 +19,7 @@ function renderUsers(users) {
     userList.innerHTML = '<div class="empty-state">No members found. Try a different search.</div>';
     return;
   }
+  const countLabel = `<p class="hint">${users.length} member${users.length !== 1 ? 's' : ''} found</p>`;
   userList.innerHTML = users.map(u => `
     <div class="card">
       <h3>${escapeHtml(u.name)}</h3>
@@ -30,7 +31,8 @@ function renderUsers(users) {
       </div>
       <button class="btn btn-sm" onclick="openRequestForm('${u._id}', '${escapeHtml(u.name).replace(/'/g, "\\'")}')">Send request</button>
     </div>
-  `).join('');
+    `).join('');
+  userList.innerHTML = countLabel + userList.innerHTML;
 }
 
 async function loadUsers(skill) {
