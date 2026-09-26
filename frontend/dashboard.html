@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile · Skill Exchange</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="dashboard.html">Skill Exchange</a>
+  <nav>
+    <a href="dashboard.html">My Profile</a>
+    <a href="browse.html">Browse</a>
+    <a href="requests.html">Requests</a>
+    <a href="#" id="logoutLink">Log out</a>
+  </nav>
+</div>
+
+<div class="container narrow">
+  <div class="card">
+    <h2>My profile</h2>
+    <div id="error" class="error-msg"></div>
+    <form id="profileForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+      </div>
+      <div class="form-group">
+        <label for="bio">Short bio</label>
+        <textarea id="bio" maxlength="300" placeholder="Tell people a bit about yourself..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="skillsTeach">Skills I can teach <span class="hint">(comma separated)</span></label>
+        <input type="text" id="skillsTeach" placeholder="e.g. Guitar, Photoshop, Spanish">
+      </div>
+      <div class="form-group">
+        <label for="skillsWant">Skills I want to learn <span class="hint">(comma separated)</span></label>
+        <input type="text" id="skillsWant" placeholder="e.g. Cooking, Excel, Public speaking">
+      </div>
+      <button type="submit" class="btn btn-amber">Save profile</button>
+      <span id="savedMsg" class="hint" style="display:none; margin-left:10px;">Saved ✓</span>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>My rating</h3>
+    <p id="ratingSummary" class="hint">Loading...</p>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
