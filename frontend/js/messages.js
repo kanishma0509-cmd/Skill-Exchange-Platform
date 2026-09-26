@@ -20,10 +20,12 @@ function renderMessages(messages) {
   }
   thread.innerHTML = messages.map(m => {
     const mine = m.sender._id === me.id;
+    const time = new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     return `
       <div class="msg-bubble ${mine ? 'msg-mine' : 'msg-theirs'}">
         ${!mine ? `<div class="msg-sender">${escapeHtml(m.sender.name)}</div>` : ''}
         ${escapeHtml(m.text)}
+        <div style="font-size:0.68rem; opacity:0.6; margin-top:2px;">${time}</div>
       </div>
     `;
   }).join('');

@@ -6,6 +6,19 @@ const receivedList = document.getElementById('receivedList');
 const sentList = document.getElementById('sentList');
 const ratingFormWrap = document.getElementById('ratingFormWrap');
 const rateError = document.getElementById('rateError');
+const starsInput = document.getElementById('stars');
+const starItems = document.querySelectorAll('.star-item');
+
+starItems.forEach(star => {
+  star.addEventListener('click', () => {
+    const value = Number(star.getAttribute('data-value'));
+    starsInput.value = value;
+    starItems.forEach(s => {
+      const sValue = Number(s.getAttribute('data-value'));
+      s.style.color = sValue <= value ? '#E8A23D' : '#DDE3DD';
+    });
+  });
+});
 
 document.getElementById('logoutLink').addEventListener('click', (e) => { e.preventDefault(); logout(); });
 
