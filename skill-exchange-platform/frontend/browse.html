@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse · Skill Exchange</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="dashboard.html">Skill Exchange</a>
+  <nav>
+    <a href="dashboard.html">My Profile</a>
+    <a href="browse.html">Browse</a>
+    <a href="requests.html">Requests</a>
+    <a href="#" id="logoutLink">Log out</a>
+  </nav>
+</div>
+
+<div class="container">
+  <h2>Browse members</h2>
+  <div class="form-group">
+    <input type="text" id="searchInput" placeholder="Search by skill, e.g. Guitar">
+  </div>
+  <div id="error" class="error-msg"></div>
+  <div id="userList">Loading...</div>
+</div>
+
+<!-- Send request modal-ish card, shown inline -->
+<div class="container narrow" id="requestFormWrap" style="display:none;">
+  <div class="card">
+    <h3>Send a request to <span id="targetName"></span></h3>
+    <div id="reqError" class="error-msg"></div>
+    <form id="requestForm">
+      <input type="hidden" id="targetUserId">
+      <div class="form-group">
+        <label for="skillOffered">Skill you'll teach them</label>
+        <input type="text" id="skillOffered" required>
+      </div>
+      <div class="form-group">
+        <label for="skillWanted">Skill you want from them</label>
+        <input type="text" id="skillWanted" required>
+      </div>
+      <div class="form-group">
+        <label for="reqMessage">Message (optional)</label>
+        <textarea id="reqMessage" maxlength="500"></textarea>
+      </div>
+      <button type="submit" class="btn btn-amber">Send request</button>
+      <button type="button" class="btn btn-outline" id="cancelRequest">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/browse.js"></script>
+</body>
+</html>

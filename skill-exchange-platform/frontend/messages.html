@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messages · Skill Exchange</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="dashboard.html">Skill Exchange</a>
+  <nav>
+    <a href="dashboard.html">My Profile</a>
+    <a href="browse.html">Browse</a>
+    <a href="requests.html">Requests</a>
+    <a href="#" id="logoutLink">Log out</a>
+  </nav>
+</div>
+
+<div class="container narrow">
+  <a href="requests.html" class="hint">&larr; Back to requests</a>
+  <div class="card" style="margin-top:14px;">
+    <h2>Conversation</h2>
+    <div id="error" class="error-msg"></div>
+    <div id="thread" class="msg-thread"></div>
+    <form id="msgForm">
+      <div class="form-group" style="display:flex; gap:8px;">
+        <input type="text" id="msgText" placeholder="Type a message..." style="flex:1;" required>
+        <button type="submit" class="btn btn-amber">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/messages.js"></script>
+</body>
+</html>
